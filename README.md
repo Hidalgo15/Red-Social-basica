@@ -5,22 +5,23 @@ BookFace es una red social básica desarrollada con el ecosistema .NET, diseñad
 
 El proyecto sigue el patrón de Onion Architecture, lo que permite que la lógica de negocio sea independiente de los frameworks y las herramientas externas.
 
-<img width="411" height="335" alt="image" src="https://github.com/user-attachments/assets/0e2a2308-746b-42fd-80d4-46d5c36e7be4" />
+<img width="389" height="310" alt="image" src="https://github.com/user-attachments/assets/2c8812c8-f640-4b02-94cf-18738b297c72" />
+
 
 Estructura de Capas:
 Core (Domain & Application): Contiene las entidades de negocio, interfaces de repositorio, DTOs y la lógica de servicios. Es el corazón de la aplicación y no tiene dependencias externas.
 
 
-<img width="370" height="482" alt="image" src="https://github.com/user-attachments/assets/bada3c6b-bd2b-43dc-ba96-7a2ba2205897" />
+<img width="425" height="513" alt="image" src="https://github.com/user-attachments/assets/344f9ed2-b2ff-4690-9631-5fb50109d366" />
 
 Infrastructure (Persistence, Identity & Shared): * Persistence: Implementación de Entity Framework Core con un enfoque Code-First.
 Identity: Gestión de usuarios y seguridad utilizando ASP.NET Core Identity.
 Shared: Servicios transversales como el envío de correos (SMTP).
 
 
-<img width="428" height="484" alt="image" src="https://github.com/user-attachments/assets/a2decde0-6449-4b96-a2a2-4a9a6c7e0a49" />
+<img width="421" height="485" alt="image" src="https://github.com/user-attachments/assets/a8e33bb7-c11f-4cb3-b7a3-96a50eca89c3" />
 
 Presentation (WebApp): La interfaz de usuario desarrollada en ASP.NET Core MVC que consume los servicios de la capa de aplicación
 
 
-<img width="295" height="333" alt="image" src="https://github.com/user-attachments/assets/0aef2316-81d1-4390-befd-9f0065cef886" />
+<img width="311" height="330" alt="image" src="https://github.com/user-attachments/assets/0d3f20fb-6c75-4751-a51d-7ec69580c052" />
