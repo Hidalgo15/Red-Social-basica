@@ -1,0 +1,30 @@
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Application.deps.json
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Domain.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Domain.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.csproj.AssemblyReference.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.AssemblyInfoInputs.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.AssemblyInfo.cs
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.52F2245E.Up2Date
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\refint\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\ref\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Application.deps.json
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Domain.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\bin\Debug\net8.0\BookFace.Core.Domain.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.csproj.AssemblyReference.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.AssemblyInfoInputs.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.AssemblyInfo.cs
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.52F2245E.Up2Date
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\refint\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Core.Application\obj\Debug\net8.0\ref\BookFace.Core.Application.dll

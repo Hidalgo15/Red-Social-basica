@@ -1,0 +1,67 @@
+﻿@model BookFace.Core.Application.ViewModel.ViewModel.Comentario.ComentarioViewModel
+@using System.Security.Claims @* Necesario para User.FindFirstValue *@
+
+@* Estilo básico para el comentario, puedes personalizarlo con tu CSS/Bootstrap *@
+<div class="card mb-3 @(Model.ComentarioPadreId.HasValue ? "ms-5" : "")">
+    @* Margen para respuestas *@
+    <div class="card-body py-2">
+        <div class="d-flex align-items-center mb-1">
+            @if (!string.IsNullOrEmpty(Model.Usuario?.FotoPerfilUrl))
+            {
+                <img src="@Model.Usuario.FotoPerfilUrl" alt="Foto de perfil de @Model.Usuario.NombreUsuario" class="rounded-circle me-2" style="width: 30px; height: 30px; object-fit: cover;">
+            }
+            else
+            {
+                <img src="https://via.placeholder.com/30?text=No+Foto" alt="Sin foto" class="rounded-circle me-2" style="width: 30px; height: 30px; object-fit: cover;">
+            }
+            <strong>@Model.Usuario?.NombreUsuario</strong>
+            <small class="text-muted ms-auto">@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</small>
+        </div>
+        <p class="mb-2 small">@Model.Contenido</p>
+
+        <div class="comment-actions">
+            @* Botón/Formulario para responder (generalmente abre un pequeño formulario in-line o modal) *@
+            <button class="btn btn-link btn-sm text-decoration-none reply-button" data-comment-id="@Model.Id">Responder</button>
+
+            @* Botones de edición y eliminación (solo si el usuario actual es el autor) *@
+            @if (User.Identity.IsAuthenticated && Model.Usuario?.Id == int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+            {
+                <a asp-controller="Comentario" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-link btn-sm text-decoration-none">Editar</a>
+                <form asp-controller="Comentario" asp-action="Delete" method="post" style="display:inline;"
+                      onsubmit="return confirm('¿Estás seguro de que quieres eliminar este comentario y todas sus respuestas anidadas?');">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <input type="hidden" name="publicacionId" value="@Model.PublicacionId" /> @* Necesario para redirigir *@
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-link btn-sm text-danger text-decoration-none">Eliminar</button>
+                </form>
+            }
+        </div>
+
+        @* Formulario de respuesta (inicialmente oculto, se muestra con JavaScript) *@
+        <div id="replyForm_@Model.Id" class="mt-3 reply-form" style="display:none;">
+            <form asp-controller="Comentario" asp-action="Add" method="post">
+                <input type="hidden" name="PublicacionId" value="@Model.PublicacionId" />
+                <input type="hidden" name="ComentarioPadreId" value="@Model.Id" />
+                @* UsuarioId no es necesario pasarlo desde la vista si lo obtienes del HttpContext.User en el controlador *@
+                @Html.AntiForgeryToken()
+                <div class="mb-2">
+                    <textarea name="Contenido" class="form-control form-control-sm" rows="2" placeholder="Tu respuesta..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Publicar Respuesta</button>
+                <button type="button" class="btn btn-secondary btn-sm cancel-reply-button" data-comment-id="@Model.Id">Cancelar</button>
+            </form>
+        </div>
+
+        @* Recursividad para las respuestas anidadas *@
+        @if (Model.Respuestas != null && Model.Respuestas.Any())
+        {
+            <div class="replies mt-3">
+                @foreach (var respuesta in Model.Respuestas.OrderBy(r => r.FechaCreacion))
+                {
+                    @* Llama al mismo partial view para cada respuesta *@
+                    @await Html.PartialAsync("_ComentarioPartial", respuesta)
+                }
+            </div>
+        }
+    </div>
+</div>

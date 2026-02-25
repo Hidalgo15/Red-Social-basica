@@ -1,0 +1,61 @@
+﻿@model BookFace.Core.Application.ViewModel.ViewModel.Comentario.ComentarioSaveViewModel
+
+@{
+    ViewData["Title"] = "Editar Comentario";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-4">Editar Comentario</h1>
+
+            @* Mensajes de TempData (si vienen de un redirect previo) *@
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            @* Resumen de errores de validación del lado del servidor *@
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+            <form asp-controller="Comentario" asp-action="Edit" method="post">
+                @* Campo oculto para el ID del comentario, PublicacionId y ComentarioPadreId *@
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="PublicacionId" />
+                <input type="hidden" asp-for="UsuarioId" />
+                <input type="hidden" asp-for="ComentarioPadreId" /> @* Puede ser nulo *@
+
+                <div class="mb-3">
+                    <label asp-for="Contenido" class="form-label"></label>
+                    <textarea asp-for="Contenido" class="form-control" rows="5" placeholder="Escribe tu comentario..."></textarea>
+                    <span asp-validation-for="Contenido" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-controller="Publicaciones" asp-action="Detalle" asp-route-id="@Model.PublicacionId" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Volver a la Publicación
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

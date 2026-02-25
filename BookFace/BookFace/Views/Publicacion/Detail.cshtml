@@ -1,0 +1,257 @@
+﻿@model BookFace.Core.Application.ViewModel.ViewModel.Publicacion.PublicacionViewModel
+
+@using System.Security.Claims @* Necesario para User.FindFirstValue *@
+
+@{
+    ViewData["Title"] = "Detalle de Publicación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-10 col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <div class="d-flex align-items-center">
+                    <img src="@(Model.Usuario.FotoPerfilUrl ?? "/images/default-avatar.png")" alt="Avatar" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                    <div>
+                        <h5 class="mb-0">@Model.Usuario.NombreUsuario</h5>
+                        <small class="text-muted">Publicado el @Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Contenido</p>
+
+                @if (!string.IsNullOrEmpty(Model.ImagenUrl))
+                {
+                    <div class="mb-3 text-center">
+                        <img src="@Model.ImagenUrl" class="img-fluid rounded" alt="Imagen de publicación" style="max-height: 400px; object-fit: contain;">
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.VideoUrl))
+                {
+                    var youtubeVideoId = "";
+                    if (Model.VideoUrl.Contains("youtube.com/watch?v="))
+                    {
+                        youtubeVideoId = Model.VideoUrl.Split("v=")[1].Split("&")[0];
+                    }
+                    else if (Model.VideoUrl.Contains("youtu.be/"))
+                    {
+                        youtubeVideoId = Model.VideoUrl.Split("youtu.be/")[1].Split("?")[0];
+                    }
+                    else if (Model.VideoUrl.Contains("googleusercontent.com/youtube.com/"))
+                    {
+                        var parts = Model.VideoUrl.Split('/');
+                        var lastPart = parts.LastOrDefault();
+                        if (lastPart.Contains("watch?v="))
+                        {
+                            youtubeVideoId = lastPart.Split("v=")[1].Split("&")[0];
+                        }
+                        else
+                        {
+                            youtubeVideoId = lastPart;
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(youtubeVideoId))
+                    {
+                        <div class="mb-3 text-center">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/@youtubeVideoId" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    }
+                }
+
+                <hr />
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center">
+                        @* Contadores de reacciones con IDs para actualización dinámica *@
+                        <span class="badge bg-primary me-2"><i class="bi bi-hand-thumbs-up-fill"></i> <span id="likeCount">@Model.CantidadMeGusta</span></span>
+                        <span class="badge bg-danger"><i class="bi bi-hand-thumbs-down-fill"></i> <span id="dislikeCount">@Model.CantidadNoMeGusta</span></span>
+                    </div>
+
+                    @* Botones de reacción con data-attributes y IDs para JavaScript *@
+                    <div class="d-flex align-items-center">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <button type="button" class="btn btn-sm btn-outline-success me-2 reaction-button @(Model.UserReactionType == BookFace.Core.Domain.Enums.Reacciones.MeGusta ? "active-reaction" : "")"
+                                    data-publicacion-id="@Model.Id" data-reaction-type="Like" id="likeButton">
+                                <i class="bi bi-hand-thumbs-up-fill"></i> Me gusta
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline-danger reaction-button @(Model.UserReactionType == BookFace.Core.Domain.Enums.Reacciones.NoMeGusta ? "active-reaction" : "")"
+                                    data-publicacion-id="@Model.Id" data-reaction-type="Dislike" id="dislikeButton">
+                                <i class="bi bi-hand-thumbs-down-fill"></i> No me gusta
+                            </button>
+                        }
+
+                        @* Botones de acción para el autor de la publicación *@
+                        @if (User.Identity.IsAuthenticated && Model.Usuario.Id == int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)))
+                        {
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-outline-info ms-3 me-2"><i class="bi bi-pencil-fill"></i> Editar</a>
+                            <form asp-action="Delete" asp-controller="Publicaciones" asp-route-id="@Model.Id" method="post" class="d-inline" onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta publicación?');">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash-fill"></i> Eliminar</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+
+                <a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary mt-3"><i class="bi bi-arrow-left"></i> Volver al Inicio</a>
+            </div>
+
+            <div class="card-footer bg-light">
+                <h6 class="mb-3">Comentarios (@Model.Comentarios.Count)</h6>
+
+                @* Mensajes de TempData para el controlador de comentarios (si vienen de un redirect) *@
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["ErrorMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                @* FORMULARIO PARA AÑADIR UN NUEVO COMENTARIO (DE NIVEL SUPERIOR) *@
+                <div class="mb-4 p-3 border rounded bg-white">
+                    <h5>Publicar un nuevo comentario</h5>
+                    <form asp-controller="Comentario" asp-action="Add" method="post">
+                        <input type="hidden" name="PublicacionId" value="@Model.Id" />
+                        <div class="mb-3">
+                            <textarea name="Contenido" class="form-control" rows="3" placeholder="Escribe tu comentario..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Comentar</button>
+                    </form>
+                </div>
+
+                @* SECCIÓN DE COMENTARIOS ACTUALIZADA *@
+                <div class="comments-section">
+                    @if (Model.Comentarios != null && Model.Comentarios.Any())
+                    {
+                        @foreach (var comentario in Model.Comentarios.OrderBy(c => c.FechaCreacion))
+                        {
+                            @await Html.PartialAsync("_ComentarioPartial", comentario)
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">Aún no hay comentarios. ¡Sé el primero en comentar!</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // JavaScript para comentarios (ya existente)
+            document.querySelectorAll('.reply-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const commentId = this.dataset.commentId;
+                    const replyForm = document.getElementById(`replyForm_${commentId}`);
+                    if (replyForm) {
+                        replyForm.style.display = 'block';
+                        replyForm.querySelector('textarea').focus();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.cancel-reply-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const commentId = this.dataset.commentId;
+                    const replyForm = document.getElementById(`replyForm_${commentId}`);
+                    if (replyForm) {
+                        replyForm.style.display = 'none';
+                        replyForm.querySelector('textarea').value = '';
+                    }
+                });
+            });
+
+            // NUEVO JAVASCRIPT PARA REACCIONES
+            document.querySelectorAll('.reaction-button').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const publicacionId = this.dataset.publicacionId;
+                    const reactionType = this.dataset.reactionType;
+                    // Obtener el token antiforja. Es crucial para proteger tu POST
+                    const antiforgeryToken = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                    const payload = {
+                        publicacionId: parseInt(publicacionId),
+                        tipoReaccion: reactionType
+                        // UsuarioId no es necesario aquí, el controlador lo obtiene del usuario autenticado
+                    };
+
+                    try {
+                        const response = await fetch('/Reactions/Process', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'RequestVerificationToken': antiforgeryToken // Incluir el token CSRF
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            const errorText = await response.text();
+                            console.error('Error al procesar la reacción:', response.status, errorText);
+                            alert('Hubo un error al procesar tu reacción.'); // Mensaje genérico para el usuario
+                            return;
+                        }
+
+                        const result = await response.json();
+                        console.log('Respuesta del servidor de reacciones:', result);
+
+                        // Actualizar los contadores en la UI
+                        document.getElementById('likeCount').textContent = result.likes;
+                        document.getElementById('dislikeCount').textContent = result.dislikes;
+
+                        // Actualizar el estado visual de los botones de reacción
+                        const likeButton = document.getElementById('likeButton');
+                        const dislikeButton = document.getElementById('dislikeButton');
+
+                        likeButton.classList.remove('active-reaction');
+                        dislikeButton.classList.remove('active-reaction');
+
+                        if (result.userReactionType === 'Like') {
+                            likeButton.classList.add('active-reaction');
+                        } else if (result.userReactionType === 'Dislike') {
+                            dislikeButton.classList.add('active-reaction');
+                        }
+                    } catch (error) {
+                        console.error('Error en la llamada Fetch de reacción:', error);
+                        alert('Error de conexión o inesperado al reaccionar.');
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        /* Estilo para el botón de reacción activo */
+        .reaction-button.active-reaction {
+            /* Por ejemplo, un fondo sólido o un borde más pronunciado */
+            color: white !important; /* Asegura que el texto sea blanco */
+            font-weight: bold;
+        }
+        /* Estilo específico para el botón "Me gusta" cuando está activo */
+        #likeButton.active-reaction {
+            background-color: var(--bs-primary); /* Color primario de Bootstrap */
+            border-color: var(--bs-primary);
+        }
+        /* Estilo específico para el botón "No me gusta" cuando está activo */
+        #dislikeButton.active-reaction {
+            background-color: var(--bs-danger); /* Color de peligro de Bootstrap */
+            border-color: var(--bs-danger);
+        }
+    </style>
+}

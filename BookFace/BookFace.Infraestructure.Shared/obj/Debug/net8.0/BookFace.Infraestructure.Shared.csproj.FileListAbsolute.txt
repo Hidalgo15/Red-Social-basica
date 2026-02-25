@@ -1,0 +1,34 @@
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Infraestructure.Shared.deps.json
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Infraestructure.Shared.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Infraestructure.Shared.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Domain.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Domain.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.csproj.AssemblyReference.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.AssemblyInfoInputs.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.AssemblyInfo.cs
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.5C84BBC2.Up2Date
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\refint\BookFace.Infraestructure.Shared.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\ref\BookFace.Infraestructure.Shared.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Infraestructure.Shared.deps.json
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Infraestructure.Shared.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Infraestructure.Shared.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Domain.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\bin\Debug\net8.0\BookFace.Core.Domain.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.csproj.AssemblyReference.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.AssemblyInfoInputs.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.AssemblyInfo.cs
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.5C84BBC2.Up2Date
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\refint\BookFace.Infraestructure.Shared.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\BookFace.Infraestructure.Shared.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Shared\obj\Debug\net8.0\ref\BookFace.Infraestructure.Shared.dll

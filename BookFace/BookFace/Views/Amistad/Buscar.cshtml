@@ -1,0 +1,103 @@
+﻿@using BookFace.Core.Application.DTO
+@model List<UserDetailsDto>
+
+@{
+    ViewData["Title"] = "Buscar Amigos";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h1 class="mb-4"><i class="bi bi-person-plus"></i> Encontrar Personas</h1>
+
+            @* Formulario de Búsqueda *@
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <form asp-controller="Amistad" asp-action="Buscar" method="get" class="row g-3">
+                        <div class="col-md-9">
+                            <input type="text" name="searchTerm" class="form-control"
+                                   placeholder="Buscar por nombre, apellido o nombre de usuario..."
+                                   value="@ViewBag.SearchTerm">
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-search"></i> Buscar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            @* Mensajes de Feedback *@
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            @* Resultados *@
+            @if (Model == null || !Model.Any())
+            {
+                if (!string.IsNullOrEmpty(ViewBag.SearchTerm as string))
+                {
+                    <div class="text-center py-5">
+                        <p class="text-muted">No se encontraron usuarios que coincidan con "@ViewBag.SearchTerm".</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center py-5">
+                        <p class="text-muted">Ingresa un nombre para empezar a conectar.</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    @foreach (var user in Model)
+                    {
+                        <div class="col">
+                            <div class="card h-100 shadow-sm border-0">
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        @if (!string.IsNullOrEmpty(user.FotoPerfilUrl))
+                                        {
+                                            <img src="@user.FotoPerfilUrl" class="rounded-circle"
+                                                 style="width: 70px; height: 70px; object-fit: cover;" alt="Perfil">
+                                        }
+                                        else
+                                        {
+                                            <img src="https://via.placeholder.com/70?text=BF" class="rounded-circle"
+                                                 alt="Sin foto">
+                                        }
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h5 class="mb-0">@user.Nombre @user.Apellido</h5>
+                                        <p class="text-muted mb-2">@@@user.NombreUsuario</p>
+
+                                        <form asp-controller="Amistad" asp-action="SendRequest" method="post">
+                                            <input type="hidden" name="targetUserId" value="@user.Id" />
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-sm btn-outline-primary">
+                                                <i class="bi bi-person-add"></i> Enviar Solicitud
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

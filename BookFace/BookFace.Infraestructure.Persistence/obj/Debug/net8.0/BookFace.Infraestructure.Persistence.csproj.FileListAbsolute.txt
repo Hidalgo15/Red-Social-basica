@@ -1,0 +1,42 @@
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.deps.json
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.runtimeconfig.json
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Domain.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Identity.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Domain.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Identity.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.csproj.AssemblyReference.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.AssemblyInfoInputs.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.AssemblyInfo.cs
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.61E9670A.Up2Date
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\refint\BookFace.Infraestructure.Persistence.dll
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.pdb
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.genruntimeconfig.cache
+C:\Users\Emmanuel Perez\Documents\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\ref\BookFace.Infraestructure.Persistence.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.deps.json
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.runtimeconfig.json
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Persistence.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Application.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Domain.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Identity.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Application.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Core.Domain.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\bin\Debug\net8.0\BookFace.Infraestructure.Identity.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.csproj.AssemblyReference.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.AssemblyInfoInputs.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.AssemblyInfo.cs
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.61E9670A.Up2Date
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\refint\BookFace.Infraestructure.Persistence.dll
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.pdb
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\BookFace.Infraestructure.Persistence.genruntimeconfig.cache
+C:\Users\Emmanuel Perez\Documents\Carpetas comprimidas\Programacion III parte 2\Practicas\BookFace\BookFace\BookFace.Infraestructure.Persistence\obj\Debug\net8.0\ref\BookFace.Infraestructure.Persistence.dll

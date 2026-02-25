@@ -1,0 +1,110 @@
+﻿@model BookFace.Core.Application.ViewModel.ViewModel.Usuario.UsuarioEditViewModel
+@{
+    ViewData["Title"] = "Editar Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="mb-0">Editar Mi Perfil</h3>
+            </div>
+            <div class="card-body">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["ErrorMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    @* Importante para la carga de archivos *@
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <input type="hidden" asp-for="Id" /> @* Para asegurar que el ID del usuario se pase al POST *@
+                    <input type="hidden" asp-for="FotoPerfilUrl" /> @* Mantener la URL existente si no se sube nueva foto *@
+
+                    <div class="mb-3 text-center">
+                        @if (!string.IsNullOrEmpty(Model.FotoPerfilUrl))
+                        {
+                            <img src="@Model.FotoPerfilUrl" class="rounded-circle mb-3" alt="Foto de Perfil" style="width: 120px; height: 120px; object-fit: cover; border: 2px solid #ddd;">
+                        }
+                        else
+                        {
+                            <img src="https://via.placeholder.com/120/007bff/FFFFFF?text=Sin+Foto" class="rounded-circle mb-3" alt="Sin Foto" style="width: 120px; height: 120px; object-fit: cover; border: 2px solid #ddd;">
+                        }
+                        <label for="FotoPerfilFile" class="form-label d-block mt-2">Cambiar Foto de Perfil (Opcional)</label>
+                        <input type="file" id="FotoPerfilFile" name="FotoPerfilFile" class="form-control-file d-inline-block w-auto" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Nombre" class="form-label"></label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Apellido" class="form-label"></label>
+                        <input asp-for="Apellido" class="form-control" />
+                        <span asp-validation-for="Apellido" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NombreUsuario" class="form-label"></label>
+                        <input asp-for="NombreUsuario" class="form-control" />
+                        <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" type="email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                   
+
+                    <h5 class="mt-4 mb-3">Cambiar Contraseña (Opcional)</h5>
+                    <p class="text-muted small">Deja los campos de contraseña en blanco si no deseas cambiarla.</p>
+
+                    <div class="mb-3">
+                        <label asp-for="ContrasenaActual" class="form-label"></label>
+                        <input asp-for="ContrasenaActual" type="password" class="form-control" />
+                        <span asp-validation-for="ContrasenaActual" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NuevaContrasena" class="form-label"></label>
+                        <input asp-for="NuevaContrasena" type="password" class="form-control" />
+                        <span asp-validation-for="NuevaContrasena" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ConfirmarContrasena" class="form-label"></label>
+                        <input asp-for="ConfirmarContrasena" type="password" class="form-control" />
+                        <span asp-validation-for="ConfirmarContrasena" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Volver al Perfil</a>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

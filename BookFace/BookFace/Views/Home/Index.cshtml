@@ -1,0 +1,255 @@
+﻿@using BookFace.Core.Domain.Enums
+@model BookFace.Core.Application.ViewModel.ViewModel.Home.HomeViewModel
+
+
+@{
+    ViewData["Title"] = "Feed de BookFace";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Asegura que tu layout principal esté aquí
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8 col-lg-7">
+
+        @* Mensajes de TempData (registro exitoso, etc.) *@
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @if (ViewBag.ShowWelcomeAlert != null && ViewBag.ShowWelcomeAlert)
+        {
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                ¡Bienvenido a BookFace, @Model.CurrentUserName! Explora las publicaciones de tus amigos y comparte las tuyas.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        @* Sección para crear una nueva publicación (opcionalmente aquí, o en un Partial View) *@
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title mb-3">¿Qué estás pensando, @Model.CurrentUserName?</h5>
+                @* Aquí puedes incluir un formulario simple o un enlace para crear una nueva publicación.
+                   Por simplicidad, pondré un enlace, pero podría ser un partial view con un formulario. *@
+                <a asp-controller="Publicacion" asp-action="Create" class="btn btn-primary w-100">Crear Nueva Publicación</a>
+            </div>
+        </div>
+
+      
+        <form id="antiForgeryForm" style="display:none;">
+            @Html.AntiForgeryToken()
+        </form>
+
+        @* Iterar y mostrar las publicaciones *@
+        @if (Model.Posts == null || !Model.Posts.Any())
+        {
+            <div class="alert alert-info text-center" role="alert">
+                ¡Parece que no hay publicaciones en tu feed todavía! Sigue a más amigos o crea tu primera publicación.
+            </div>
+        }
+        else
+        {
+            @foreach (var post in Model.Posts)
+            {
+                <div class="card mb-4 shadow-sm" id="post-@post.Id">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <a asp-controller="Profile" asp-action="Index" asp-route-userId="@post.Usuario.Id" class="text-decoration-none text-dark d-flex align-items-center">
+                                @if (!string.IsNullOrEmpty(post.Usuario.FotoPerfilUrl))
+                                {
+                                    <img src="@post.Usuario.FotoPerfilUrl" class="rounded-circle me-3" alt="Foto de perfil de @post.Usuario.NombreUsuario" style="width: 45px; height: 45px; object-fit: cover;">
+                                }
+                                else
+                                {
+                                    <img src="https://via.placeholder.com/45/007bff/FFFFFF?text=PF" class="rounded-circle me-3" alt="Foto de perfil por defecto" style="width: 45px; height: 45px; object-fit: cover;">
+                                }
+                                <div>
+                                    <h5 class="mb-0">@post.Usuario.NombreUsuario</h5>
+                                    <small class="text-muted">Publicado el @post.FechaCreacion.ToString("dd MMM yyyy 'a las' HH:mm")</small>
+                                </div>
+                            </a>
+                        </div>
+
+
+
+                        @* Contenido de la publicación *@
+                        <div class="mb-3">
+                            <p>@Html.Raw(post.Contenido)</p>
+
+                            @if (!string.IsNullOrEmpty(post.ImagenUrl))
+                            {
+                                <img src="@post.ImagenUrl" class="img-fluid rounded mb-2" alt="Imagen de publicación" style="max-height: 400px; width: 100%; object-fit: contain;">
+                            }
+
+                            @if (!string.IsNullOrEmpty(post.VideoUrl))
+                            {
+                                string youtubeVideoId = "";
+                                // Expresión regular para extraer el ID de video de varias URLs de YouTube
+                                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(post.VideoUrl, @"(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?");
+                                if (match.Success)
+                                {
+                                    youtubeVideoId = match.Groups[1].Value;
+                                }
+                                // Mantenemos la lógica específica si tus URLs de googleusercontent.com son para esto
+                                else if (post.VideoUrl.Contains("youtube.com/watch?v="))
+                                {
+                                    int startIndex = post.VideoUrl.IndexOf("v=") + 2;
+                                    int endIndex = post.VideoUrl.IndexOf("&", startIndex);
+                                    if (endIndex == -1) endIndex = post.VideoUrl.Length;
+                                    youtubeVideoId = post.VideoUrl.Substring(startIndex, endIndex - startIndex);
+                                }
+                                else if (post.VideoUrl.Contains("youtu.be/"))
+                                {
+                                    int startIndex = post.VideoUrl.IndexOf("youtu.be/") + "youtu.be/".Length;
+                                    int endIndex = post.VideoUrl.IndexOf("?", startIndex);
+                                    if (endIndex == -1) endIndex = post.VideoUrl.Length;
+                                    youtubeVideoId = post.VideoUrl.Substring(startIndex, endIndex - startIndex);
+                                }
+
+                                if (!string.IsNullOrEmpty(youtubeVideoId))
+                                {
+                                    <div class="ratio ratio-16x9 mb-2">
+                                        <iframe src="https://www.youtube.com/embed/@youtubeVideoId"
+                                                title="YouTube video player"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <p class="text-warning">Enlace de video no reconocido: @post.VideoUrl</p>
+                                }
+                            }
+                        </div>
+
+                        <hr />
+
+
+                        @* Contadores e interacciones *@
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="reaction-counts">
+                                <span class="me-3"><i class="bi bi-hand-thumbs-up"></i> <span id="likes-@post.Id">@post.CantidadMeGusta</span> Me gusta</span>
+                                <span class="me-3"><i class="bi bi-hand-thumbs-down"></i> <span id="dislikes-@post.Id">@post.CantidadNoMeGusta</span> No me gusta</span>
+                                <span><i class="bi bi-chat"></i> @post.Comentarios.Count Comentarios</span> @* Usar post.Comentarios.Count si siempre los cargas *@
+                            </div>
+                            <div>
+                                @* Botón "Me gusta" *@
+                                <button class="btn btn-sm @(post.UserReactionType == Reacciones.MeGusta ? "btn-primary" : "btn-outline-primary") me-2"
+                                        onclick="processReaction(@post.Id, @((int)Reacciones.MeGusta))">
+                                    <i class="bi bi-hand-thumbs-up"></i> Me gusta
+                                </button>
+
+                                @* Botón "No me gusta" *@
+                                <button class="btn btn-sm @(post.UserReactionType == Reacciones.NoMeGusta ? "btn-danger" : "btn-outline-danger") me-2"
+                                        onclick="processReaction(@post.Id, @((int)Reacciones.NoMeGusta))">
+                                    <i class="bi bi-hand-thumbs-down"></i> No me gusta
+                                </button>
+
+                                <a asp-controller="Publicacion" asp-action="Detail" asp-route-id="@post.Id" class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-chat"></i> Comentar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Obtener el token de verificación de solicitud del campo oculto generado por @Html.AntiForgeryToken()
+        const antiForgeryToken = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+
+        // Comprobación para depuración:
+        if (!antiForgeryToken) {
+            console.error('ERROR: El token anti-CSRF no fue encontrado en el DOM.');
+            // Podrías mostrar un mensaje de error al usuario o recargar la página.
+        }
+
+        // Función para procesar reacciones (Me gusta / No me gusta)
+        async function processReaction(postId, reactionType) {
+            const currentUserId = @(Context.User.Identity.IsAuthenticated ? int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0") : 0);
+            if (currentUserId === 0) {
+                alert('Debes iniciar sesión para reaccionar.');
+                return;
+            }
+
+            // Si el token no se encontró, detén la ejecución
+            if (!antiForgeryToken) {
+                alert('Error de seguridad: Token anti-CSRF ausente. Por favor, recargue la página.');
+                return;
+            }
+
+            const payload = {
+                PublicacionId: postId,
+                UsuarioId: currentUserId,
+                TipoReaccion: reactionType
+            };
+
+            try {
+                const response = await fetch('/Reactions/Process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Ahora sí, enviamos el VALOR del token
+                        'RequestVerificationToken': antiForgeryToken
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+
+                    // Actualizar los contadores en la UI
+                    document.getElementById(`likes-${postId}`).textContent = data.likes;
+                    document.getElementById(`dislikes-${postId}`).textContent = data.dislikes;
+
+                    // Actualizar los estilos de los botones de reacción
+                    const likeButton = document.querySelector(`#post-${postId} button[onclick*="MeGusta"]`);
+                    const dislikeButton = document.querySelector(`#post-${postId} button[onclick*="NoMeGusta"]`);
+
+                    if (data.userReactionType === @((int)Reacciones.MeGusta)) {
+                        likeButton.classList.remove('btn-outline-primary');
+                        likeButton.classList.add('btn-primary');
+                        dislikeButton.classList.remove('btn-danger');
+                        dislikeButton.classList.add('btn-outline-danger');
+                    } else if (data.userReactionType === @((int)Reacciones.NoMeGusta)) {
+                        likeButton.classList.remove('btn-primary');
+                        likeButton.classList.add('btn-outline-primary');
+                        dislikeButton.classList.remove('btn-outline-danger');
+                        dislikeButton.classList.add('btn-danger');
+                    } else { // No hay reacción (se eliminó)
+                        likeButton.classList.remove('btn-primary');
+                        likeButton.classList.add('btn-outline-primary');
+                        dislikeButton.classList.remove('btn-danger');
+                        dislikeButton.classList.add('btn-outline-danger');
+                    }
+
+                } else {
+                    const errorText = await response.text();
+                    alert('Error al procesar la reacción: ' + errorText);
+                }
+            } catch (error) {
+                console.error('Error en la llamada AJAX:', error);
+                alert('Ocurrió un error de red.');
+            }
+        }
+    </script>
+}

@@ -1,0 +1,34 @@
+﻿@model dynamic // Esto te permite acceder a propiedades como ViewBag.Success
+@{
+    ViewData["Title"] = "Confirmar cuenta";
+}
+
+<h2>Confirmación de cuenta</h2>
+
+@* Accede a la propiedad Success y Message que pasaremos desde el controlador mediante ViewBag *@
+@if ((bool)ViewBag.Success)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        @ViewBag.Message
+        @* Opcional: Si quieres mostrar errores específicos de Identity (result.Errors) *@
+        @* @if (ViewBag.Errors != null && ViewBag.Errors.Any())
+        {
+            <ul>
+                @foreach (var error in ViewBag.Errors)
+                {
+                    <li>@error</li>
+                }
+            </ul>
+        } *@
+    </div>
+}
+
+<div>
+    <a asp-controller="Account" asp-action="Login" class="btn btn-primary mt-3">Ir a Iniciar Sesión</a>
+</div>

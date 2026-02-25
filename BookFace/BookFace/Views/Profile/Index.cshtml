@@ -1,0 +1,70 @@
+﻿@model BookFace.Core.Application.ViewModel.ViewModel.Usuario.UsuarioViewModel
+
+
+@{
+    ViewData["Title"] = "Mi Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Asegura que tu layout principal esté aquí
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="mb-0">Perfil de @Model.NombreUsuario</h3>
+            </div>
+            <div class="card-body">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["ErrorMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <div class="text-center mb-4">
+                    @if (!string.IsNullOrEmpty(Model.FotoPerfilUrl))
+                    {
+                        <img src="@Model.FotoPerfilUrl" class="rounded-circle mb-3" alt="Foto de Perfil" style="width: 150px; height: 150px; object-fit: cover; border: 3px solid #ddd;">
+                    }
+                    else
+                    {
+                        <img src="https://via.placeholder.com/150/007bff/FFFFFF?text=Sin+Foto" class="rounded-circle mb-3" alt="Sin Foto" style="width: 150px; height: 150px; object-fit: cover; border: 3px solid #ddd;">
+                    }
+                    <h2>@Model.Nombre @Model.Apellido</h2>
+                    <p class="text-muted">@@@Model.NombreUsuario</p>
+                </div>
+
+                <hr />
+
+                <dl class="row">
+                    <dt class="col-sm-4">Nombre Completo:</dt>
+                    <dd class="col-sm-8">@Model.Nombre @Model.Apellido</dd>
+
+                    <dt class="col-sm-4">Nombre de Usuario:</dt>
+                    <dd class="col-sm-8">@Model.NombreUsuario</dd>
+
+                    <dt class="col-sm-4">Email:</dt>
+                    <dd class="col-sm-8">@Model.CorreoElectronico</dd>
+
+                   
+                    
+                </dl>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Volver al Home</a>
+                    <a asp-action="Edit" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Editar Perfil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+}
